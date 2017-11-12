@@ -1,4 +1,7 @@
 <?php
+use Illuminate\Http\Request;
+use App\Doctor;
+use App\Http\Resources\Doctor as DoctorResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,4 +16,8 @@
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/doctor', function(){
+    return new DoctorResource(Doctor::find(1));
 });

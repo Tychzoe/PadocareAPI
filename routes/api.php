@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Doctor;
+use App\Http\Resources\Doctor as DoctorResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,7 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+Route::get('/doctor', function(){
+    return new DoctorResource(Doctor::find(1));
 });
